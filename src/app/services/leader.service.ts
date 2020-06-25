@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Leader } from '../shared/leader';
-import { LEADER } from '../shared/leaders';
+import { LEADERS } from '../shared/leaders';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,15 @@ export class LeaderService {
 
   constructor() { }
 
-  getLeaders(): Leader[] {
-    return LEADER;
+  getLeaders(): Promise<Leader[]> {
+    return Promise.resolve(LEADERS);
   }
 
-  getFeaturedLeader(): Leader {
-    return LEADER.filter((lead) => lead.featured)[0];
+  getLeader(id: string): Promise<Leader> {
+    return Promise.resolve(LEADERS.filter((leader) => leader.featured)[0]);
+  }
+
+  getFeaturedLeader(): Promise<Leader> {
+    return Promise.resolve(LEADERS.filter((leader) => leader.featured)[0]);
   }
 }
