@@ -1,10 +1,5 @@
-<div class="container"
-    fxLayout="row"
-    fxLayout.sm="column"
-    fxLayout.xs="column"
-    fxLayoutAlign.gt-md="space-around center"
-    fxLayoutGap="10px" 
-    fxLayoutGap.xs="0">
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="40">
     <div fxFlex *ngIf="dish">
@@ -45,6 +40,11 @@
         </p>
       </mat-list-item>
     </mat-list>
+  </div>
+
+  <div fxFlex [hidden]="dish">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
   </div>
 
 </div>
